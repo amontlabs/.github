@@ -2,8 +2,8 @@
   <source media="(prefers-color-scheme: dark)" srcset="amont-on-dark.svg">
   <img alt="amont" src="amont.svg" width="200">
 </picture>
-<br />
-Independent software studio in Paris. Practical, open-source software on emerging tech.
+
+<i>Independent software studio in Paris. Practical, open-source software on emerging tech.</i>
 
 **[Silo](https://github.com/amontlabs/silo)** — Computers for your agents. Run Linux sandboxes locally or remotely, with a desktop and computer use.
 
