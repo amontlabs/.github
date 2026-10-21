@@ -1,0 +1,54 @@
+# Refreshes the sponsor sections of profile/README.md (shown on github.com/amontlabs).
+# Companies: $100+/month, logo. Backers: $25–99/month, name. Private sponsors are never shown.
+# Needs the SPONSORS_TOKEN secret: a classic PAT of an org owner with read:org and read:user.
+name: Sponsors
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sponsors
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Companies ($100+)
+        uses: JamesIves/github-sponsors-readme-action@02650b8cd445fc16dfef73195f9c406dce041623 # v1.6.1
+        with:
+          token: ${{ secrets.SPONSORS_TOKEN }}
+          organization: true
+          file: profile/README.md
+          marker: sponsors-companies
+          minimum: 10000
+          template: '<a href="{{ websiteUrl }}"><img src="{{ avatarUrl }}" width="64" height="64" alt="{{ login }}"></a>&nbsp;'
+
+      - name: Backers ($25–99)
+        uses: JamesIves/github-sponsors-readme-action@02650b8cd445fc16dfef73195f9c406dce041623 # v1.6.1
+        with:
+          token: ${{ secrets.SPONSORS_TOKEN }}
+          organization: true
+          file: profile/README.md
+          marker: sponsors-backers
+          minimum: 2500
+          maximum: 9999
+          template: '[{{#name}}{{ name }}{{/name}}{{^name}}{{ login }}{{/name}}]({{ url }})&emsp;'
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- profile/README.md; then
+            echo "Sponsors unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update sponsors" -- profile/README.md
+          git push
