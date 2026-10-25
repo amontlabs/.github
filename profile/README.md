@@ -19,4 +19,12 @@
 
 **[LCU](https://github.com/amontlabs/lcu)** — Codex computer use, decoupled from the app, for any agent harness.
 
+### Sponsors
+
+Amont Labs is independent. If our work is useful to you, [sponsor it](https://github.com/sponsors/amontlabs).
+
+<!-- sponsors-companies --><!-- sponsors-companies -->
+
+<!-- sponsors-backers --><!-- sponsors-backers -->
+
 [hello@amontlabs.com](mailto:hello@amontlabs.com) · [amontlabs.com](https://amontlabs.com)
