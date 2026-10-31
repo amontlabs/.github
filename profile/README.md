@@ -19,6 +19,8 @@
 
 **[LCU](https://github.com/amontlabs/lcu)** — Codex computer use, decoupled from the app, for any agent harness.
 
+**[lastdrop](https://github.com/amontlabs/lastdrop)** — Use any model as a built-in subagent in Claude Code, with a subscription or API key, and spread usage across your accounts.
+
 ### Sponsors
 
 Amont Labs is independent. If our work is useful to you, [sponsor it](https://github.com/sponsors/amontlabs).
